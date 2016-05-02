@@ -1,6 +1,7 @@
 package com.example.turki.quiz_final;
 
 import android.content.Intent;
+import android.media.Image;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,11 +29,17 @@ import com.facebook.login.widget.LoginButton;
  */
 public class MainFragment extends Fragment {
     //       -------Login   Facebook ---------------  //
+    private ImageView  logo;
+    private Button btnStart;
+    private ImageButton btnInfo;
+    private ImageButton btnSetting;
+    private ImageButton btnAbout;
     private TextView mtextDetails;
     private ImageView img;
     private CallbackManager mcallbackManager;
     private ProfileTracker mprofileTracker;
     private AccessTokenTracker mtokenTracker;
+    private LoginButton loginButton;
     private FacebookCallback<LoginResult> mcallback = new FacebookCallback<LoginResult>() {
         /*  -----------Login   Google plus ---------------  */
 
@@ -45,9 +53,9 @@ public class MainFragment extends Fragment {
             AccessToken accessToken = loginResult.getAccessToken();
             Profile profile = Profile.getCurrentProfile();
             displayWelcomeMessage(profile);
+
             //img=(ImageView) getView().findViewById(R.id.imageView);
             // img.setImageURI(profile.getProfilePictureUri(500,500));
-
 
         }
 
@@ -100,13 +108,37 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_main, container, false);
+
+        View view=inflater.inflate(R.layout.fragment_main, container, false);
+        btnStart=(Button)view.findViewById(R.id.play);
+        btnStart.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            goMenu();
+                                        }
+                                    }
+        );
+        return view;
+
+
+    }
+    private void goMenu()
+    {
+        Intent intent=new Intent(getActivity(),MenuActivity.class);
+        startActivity(intent);
     }
 
     private void displayWelcomeMessage(Profile profile) {
         // StringBuffer stringBuffer = new StringBuffer();
         if (profile != null) {
+            loginButton.setVisibility(View.INVISIBLE);
             mtextDetails.setText("Welcome " + profile.getName());
+            logo.setVisibility(View.VISIBLE);
+            btnStart.setVisibility(View.VISIBLE);
+            btnInfo.setVisibility(View.VISIBLE);
+            btnSetting.setVisibility(View.VISIBLE);
+            btnAbout.setVisibility(View.VISIBLE);
+
         }
         //return stringBuffer.toString();
     }
@@ -115,11 +147,19 @@ public class MainFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //       -------Login   Facebook ---------------  //
-        LoginButton loginButton = (LoginButton) view.findViewById(R.id.login_button);
+        loginButton = (LoginButton) view.findViewById(R.id.login_button);
+
         loginButton.setReadPermissions("user_friends");
         loginButton.setFragment(this);
         loginButton.registerCallback(mcallbackManager, mcallback);
         mtextDetails = (TextView) view.findViewById(R.id.nameprofile);
+        logo=(ImageView)view.findViewById(R.id.logo);
+
+        btnInfo=(ImageButton)view.findViewById(R.id.info);
+        btnSetting=(ImageButton)view.findViewById(R.id.setting);
+        btnAbout=(ImageButton)view.findViewById(R.id.aboutUs);
+
+
         //       -------Login   Google plus ---------------  //
 
     }
@@ -129,7 +169,10 @@ public class MainFragment extends Fragment {
         super.onResume();
         Profile profile = Profile.getCurrentProfile();
         displayWelcomeMessage(profile);
-        //ktata
+
+
+
+
 
 
     }
@@ -146,5 +189,6 @@ public class MainFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         mcallbackManager.onActivityResult(requestCode, resultCode, data);
+
     }
 }
