@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Quiz</string>
+    <string name="cat_1">Random</string>
+    <string name="cat_2">History</string>
+    <string name="cat_3">Animals</string>
+    <string name="cat_4">Food</string>
+    <string name="cat_5">Science</string>
+    <string name="cat_6">Technologie</string>
+</resources>
