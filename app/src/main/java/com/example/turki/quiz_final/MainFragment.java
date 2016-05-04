@@ -69,7 +69,7 @@ public class MainFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //       -------Login   Facebook ---------------  //
+        //       -------Login   Facebook fechel---------------  //
         FacebookSdk.sdkInitialize(getActivity().getApplicationContext());
         mcallbackManager = CallbackManager.Factory.create();
 
