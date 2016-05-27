@@ -1,4 +1,4 @@
-package com.example.turki.quiz_final;
+package tn.iit.quiz.quiz;
 
 import android.app.Application;
 import android.content.pm.PackageInfo;
@@ -24,10 +24,11 @@ public class MyApplication extends Application {
 
         printHashKey();
     }
-    public void printHashKey(){
+
+    public void printHashKey() {
 
         try {
-            PackageInfo info = getPackageManager().getPackageInfo("com.example.turki.quiz_final", PackageManager.GET_SIGNATURES);
+            PackageInfo info = getPackageManager().getPackageInfo("tn.iit.quiz.quiz", PackageManager.GET_SIGNATURES);
             for (Signature signature : info.signatures) {
                 MessageDigest md = MessageDigest.getInstance("SHA");
                 md.update(signature.toByteArray());
@@ -38,5 +39,5 @@ public class MyApplication extends Application {
         } catch (NoSuchAlgorithmException e) {
 
         }
-}
+    }
 }

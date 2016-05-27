@@ -1,4 +1,4 @@
-package com.example.turki.quiz_final;
+package tn.iit.quiz.quiz;
 
 import org.junit.Test;
 
