@@ -1,14 +1,16 @@
-package tn.iit.quiz.quiz;
+package tn.iit.quiz.quiz.fragment;
 
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
@@ -20,23 +22,22 @@ import com.facebook.ProfileTracker;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
+import tn.iit.quiz.quiz.MainActivity;
+import tn.iit.quiz.quiz.R;
+
 /**
  * A placeholder fragment containing a simple view.
  */
 public class MainFragment extends Fragment implements View.OnClickListener {
     //       -------Login   Facebook ---------------  //
     View myView;
-  //  private TextView mtextDetails;
-  //  private ImageView img;
+    //  private TextView mtextDetails;
+    //  private ImageView img;
     private CallbackManager mcallbackManager;
-  //  private ProfileTracker mprofileTracker;
-  //  private AccessTokenTracker mtokenTracker;
+    //  private ProfileTracker mprofileTracker;
+    //  private AccessTokenTracker mtokenTracker;
     private FacebookCallback<LoginResult> mcallback = new FacebookCallback<LoginResult>() {
         /*  -----------Login   Google plus ---------------  */
-
-
-
-
 
 
         @Override
@@ -44,9 +45,13 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             AccessToken accessToken = loginResult.getAccessToken();
             Profile profile = Profile.getCurrentProfile();
             displayWelcomeMessage(profile);
-        //  intent
-            //img=(ImageView) getView().findViewById(R.id.imageView);
-            //img.setImageURI(profile.getProfilePictureUri(500,500));
+
+
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.fragment, new PlayFragment())
+                    .commit();
+
+
 
 
         }
@@ -64,8 +69,6 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     private int fragment;
 
     public MainFragment() {
-
-
 
 
     }
@@ -94,17 +97,12 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         //       -------Login   Google plus ---------------  //
 
 
-
-
-
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        myView =inflater.inflate(tn.iit.quiz.quiz.R.layout.fragment_main, container, false);
+        myView = inflater.inflate(tn.iit.quiz.quiz.R.layout.fragment_main, container, false);
 
         Button login = (Button) myView.findViewById(R.id.login);
 
@@ -113,13 +111,12 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         return myView;
 
 
-
     }
 
     private void displayWelcomeMessage(Profile profile) {
         // StringBuffer stringBuffer = new StringBuffer();
         if (profile != null) {
-         //   mtextDetails.setText("Welcome " + profile.getName() );
+            //   mtextDetails.setText("Welcome " + profile.getName() );
         }
         //return stringBuffer.toString();
     }
@@ -132,7 +129,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         loginButton.setReadPermissions("user_friends");
         loginButton.setFragment(this);
         loginButton.registerCallback(mcallbackManager, mcallback);
-     //   mtextDetails = (TextView) view.findViewById(tn.iit.quiz.quiz.R.id.nameprofile);
+        //   mtextDetails = (TextView) view.findViewById(tn.iit.quiz.quiz.R.id.nameprofile);
         //       -------Login   Google plus ---------------  //
 
     }
@@ -161,9 +158,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     }
 
     public void loginClick() {
-     //   this.getActivity().getSupportFragmentManager().beginTransaction().remove(this.getActivity().getSupportFragmentManager().getFragments().get(0));
-
-        FragmentManager fragmentManager= getFragmentManager();
+        FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.fragment
                         , new LoginFragment())

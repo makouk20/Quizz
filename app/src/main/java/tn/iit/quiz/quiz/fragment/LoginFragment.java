@@ -1,20 +1,18 @@
-package tn.iit.quiz.quiz;
+package tn.iit.quiz.quiz.fragment;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
@@ -22,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import tn.iit.quiz.quiz.R;
 import tn.iit.quiz.quiz.database.ConvertisseurBDD;
 import tn.iit.quiz.quiz.database.QuizContentProvider;
 import tn.iit.quiz.quiz.database.tables.UtilisateurTable;
@@ -33,18 +32,18 @@ import tn.iit.quiz.quiz.entities.Utilisateur;
 public class LoginFragment extends Fragment implements View.OnClickListener {
 
 
-
+    View myView;
+    int i;
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
 
-    View myView;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        myView = inflater.inflate(R.layout.fragment_login, container, false);
+        myView = inflater.inflate(tn.iit.quiz.quiz.R.layout.fragment_login, container, false);
+
 
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) myView.findViewById(R.id.email);
@@ -62,23 +61,32 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
             }
         });
 
-        Button mEmailSignInButton = (Button)  myView.findViewById(R.id.email_sign_in_button);
-        Button inscription = (Button)  myView.findViewById(R.id.Inscription);
-        mLoginFormView =  myView.findViewById(R.id.login_form);
-        mProgressView =  myView.findViewById(R.id.login_progress);
+        Button mEmailSignInButton = (Button) myView.findViewById(R.id.email_sign_in_button);
+        Button inscription = (Button) myView.findViewById(R.id.Inscription);
+        mLoginFormView = myView.findViewById(R.id.login_form);
+        mProgressView = myView.findViewById(R.id.login_progress);
 
         inscription.setOnClickListener(this);
-
         mEmailSignInButton.setOnClickListener(this);
         return myView;
     }
 
 
+
     public void mInscription() {
+      FragmentTransaction ft = this.getActivity().getSupportFragmentManager().beginTransaction();
+        ft.hide(this);
+        ft.commit();
+        this.getActivity().getFragmentManager().beginTransaction()
+                .replace(R.id.fragment
+                        ,new InscriptionFragment())
+                .commit();
 
 
 
     }
+
+
 
     @Override
     public void onClick(View v) {
@@ -95,8 +103,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     }
 
 
-
-
+    public LoginFragment() {
+    }
 
     /**
      * Attempts to sign in or register the account specified by the login form.
@@ -142,22 +150,21 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         } else {
 
 
-
-            String[] whereArgs = {email,password};
+            String[] whereArgs = {email, password};
             Cursor cursor = this.getActivity().getContentResolver().query(QuizContentProvider.UTILISATEUR_CONTENT_URI,
-                    new String[] {UtilisateurTable._ID,UtilisateurTable.lOGIN, UtilisateurTable.NOM, UtilisateurTable.PRENOM, UtilisateurTable.EMAIL, UtilisateurTable.PASSWORD },
-                    UtilisateurTable.EMAIL+" = ? AND "+ UtilisateurTable.PASSWORD + " = ? ", whereArgs,null );
-            ConvertisseurBDD conv= new ConvertisseurBDD();
+                    new String[]{UtilisateurTable._ID, UtilisateurTable.lOGIN, UtilisateurTable.NOM, UtilisateurTable.PRENOM, UtilisateurTable.EMAIL, UtilisateurTable.PASSWORD},
+                    UtilisateurTable.EMAIL + " = ? AND " + UtilisateurTable.PASSWORD + " = ? ", whereArgs, null);
+            ConvertisseurBDD conv = new ConvertisseurBDD();
             Utilisateur user = conv.cursorToUtilisateur(cursor);
 
-            if(user !=null) {
+            if (user != null) {
 
                 Toast.makeText(this.getActivity().getApplicationContext(), user.toString(), Toast.LENGTH_LONG).show();
-               // Intent accueil = new Intent(this.getActivity().getApplicationContext(), PlayActivity.class);
-               // startActivity(accueil);
-            }else
-            {
-                Toast.makeText(this.getActivity().getApplicationContext(), "pas d'utilisateur ", Toast.LENGTH_LONG).show();
+                this.getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment, new PlayFragment())
+                        .commit();
+            } else {
+                Toast.makeText(this.getActivity().getApplicationContext(), "you are not registered ", Toast.LENGTH_LONG).show();
             }
 
         }
@@ -178,9 +185,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
      */
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     private void showProgress(final boolean show) {
-        // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
-        // for very easy animations. If available, use these APIs to fade-in
-        // the progress spinner.
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
             int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
 
@@ -202,13 +207,10 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 }
             });
         } else {
-            // The ViewPropertyAnimator APIs are not available, so simply show
-            // and hide the relevant UI components.
             mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
             mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
         }
     }
-
 
 
 }
