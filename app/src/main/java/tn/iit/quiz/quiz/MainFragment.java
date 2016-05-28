@@ -1,14 +1,14 @@
 package tn.iit.quiz.quiz;
 
+
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-
+import android.widget.Button;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
@@ -23,13 +23,14 @@ import com.facebook.login.widget.LoginButton;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MainFragment extends Fragment {
+public class MainFragment extends Fragment implements View.OnClickListener {
     //       -------Login   Facebook ---------------  //
-    private TextView mtextDetails;
-    private ImageView img;
+    View myView;
+  //  private TextView mtextDetails;
+  //  private ImageView img;
     private CallbackManager mcallbackManager;
-    private ProfileTracker mprofileTracker;
-    private AccessTokenTracker mtokenTracker;
+  //  private ProfileTracker mprofileTracker;
+  //  private AccessTokenTracker mtokenTracker;
     private FacebookCallback<LoginResult> mcallback = new FacebookCallback<LoginResult>() {
         /*  -----------Login   Google plus ---------------  */
 
@@ -43,8 +44,9 @@ public class MainFragment extends Fragment {
             AccessToken accessToken = loginResult.getAccessToken();
             Profile profile = Profile.getCurrentProfile();
             displayWelcomeMessage(profile);
+        //  intent
             //img=(ImageView) getView().findViewById(R.id.imageView);
-            // img.setImageURI(profile.getProfilePictureUri(500,500));
+            //img.setImageURI(profile.getProfilePictureUri(500,500));
 
 
         }
@@ -59,8 +61,12 @@ public class MainFragment extends Fragment {
 
         }
     };
+    private int fragment;
 
     public MainFragment() {
+
+
+
 
     }
 
@@ -98,13 +104,22 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(tn.iit.quiz.quiz.R.layout.fragment_main, container, false);
+        myView =inflater.inflate(tn.iit.quiz.quiz.R.layout.fragment_main, container, false);
+
+        Button login = (Button) myView.findViewById(R.id.login);
+
+        login.setOnClickListener(this);
+
+        return myView;
+
+
+
     }
 
     private void displayWelcomeMessage(Profile profile) {
         // StringBuffer stringBuffer = new StringBuffer();
         if (profile != null) {
-            mtextDetails.setText("Welcome " + profile.getName());
+         //   mtextDetails.setText("Welcome " + profile.getName() );
         }
         //return stringBuffer.toString();
     }
@@ -117,7 +132,7 @@ public class MainFragment extends Fragment {
         loginButton.setReadPermissions("user_friends");
         loginButton.setFragment(this);
         loginButton.registerCallback(mcallbackManager, mcallback);
-        mtextDetails = (TextView) view.findViewById(tn.iit.quiz.quiz.R.id.nameprofile);
+     //   mtextDetails = (TextView) view.findViewById(tn.iit.quiz.quiz.R.id.nameprofile);
         //       -------Login   Google plus ---------------  //
 
     }
@@ -135,8 +150,7 @@ public class MainFragment extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
-        mtokenTracker.startTracking();
-        mprofileTracker.startTracking();
+
 
     }
 
@@ -144,5 +158,27 @@ public class MainFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         mcallbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+    public void loginClick() {
+     //   this.getActivity().getSupportFragmentManager().beginTransaction().remove(this.getActivity().getSupportFragmentManager().getFragments().get(0));
+
+        FragmentManager fragmentManager= getFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.fragment
+                        , new LoginFragment())
+                .commit();
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.login:
+                loginClick();
+                break;
+
+        }
+
     }
 }
