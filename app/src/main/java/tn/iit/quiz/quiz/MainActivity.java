@@ -25,6 +25,18 @@ public class MainActivity extends AppCompatActivity  {
 
 
 
+<<<<<<< HEAD
+=======
+//a
+        FloatingActionButton fab = (FloatingActionButton) findViewById(tn.iit.quiz.quiz.R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+>>>>>>> origin/master
     }
 
 
