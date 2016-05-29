@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(tn.iit.quiz.quiz.R.id.toolbar);
         setSupportActionBar(toolbar);
 
+//a
         FloatingActionButton fab = (FloatingActionButton) findViewById(tn.iit.quiz.quiz.R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
