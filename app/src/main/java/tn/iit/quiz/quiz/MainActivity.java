@@ -1,10 +1,14 @@
 package tn.iit.quiz.quiz;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.FrameLayout;
 
 import tn.iit.quiz.quiz.fragment.MainFragment;
 
@@ -13,11 +17,13 @@ public class MainActivity extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(tn.iit.quiz.quiz.R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(tn.iit.quiz.quiz.R.id.toolbar);
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //FrameLayout fm=(FrameLayout)findViewById(tn.iit.quiz.quiz.R.id.fragment);
-
+        toolbar.setTitle(getResources().getString(R.string.app_name));
+      //  toolbar.setSubtitle("mohammed ali driss");
+        toolbar.setLogo(R.mipmap.ic_logo_quiz);
+        setSupportActionBar(toolbar);
 
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fragment, new MainFragment())
@@ -25,18 +31,7 @@ public class MainActivity extends AppCompatActivity  {
 
 
 
-<<<<<<< HEAD
-=======
-//a
-        FloatingActionButton fab = (FloatingActionButton) findViewById(tn.iit.quiz.quiz.R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
->>>>>>> origin/master
+
     }
 
 

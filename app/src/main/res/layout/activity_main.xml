@@ -5,19 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-<<<<<<< HEAD
     android:background="@drawable/quizbg"
     tools:context=".MainActivity"
     >
-=======
-<<<<<<< HEAD
-    tools:context=".MainActivity">
-=======
-    android:background="@drawable/quizbg"
-    tools:context=".MainActivity"
-    >
->>>>>>> dd5930204700d3909f9093b915fcca73ddfa0092
->>>>>>> origin/master
+
+
+
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

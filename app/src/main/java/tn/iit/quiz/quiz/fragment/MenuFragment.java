@@ -1,10 +1,7 @@
 package tn.iit.quiz.quiz.fragment;
 
-
-<<<<<<< HEAD
-=======
+import tn.iit.quiz.quiz.QuizType;
 import android.media.MediaPlayer;
->>>>>>> origin/master
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,11 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-<<<<<<< HEAD
-=======
-
-import tn.iit.quiz.quiz.QuizType;
->>>>>>> origin/master
 import tn.iit.quiz.quiz.R;
 
 public class MenuFragment extends Fragment implements View.OnClickListener {
@@ -27,21 +19,16 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
     private Button btn_food;
     private Button btn_science;
     private Button btn_technologie;
-<<<<<<< HEAD
-=======
+
 
     MediaPlayer click_btn_sound;
->>>>>>> origin/master
+
     View myView;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(tn.iit.quiz.quiz.R.layout.fragment_menu, container, false);
-<<<<<<< HEAD
-=======
 
-
->>>>>>> origin/master
         btn_random = (Button) myView.findViewById(R.id.btn_cat1);
         btn_random.setOnClickListener(this);
 
@@ -94,22 +81,17 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
         }
 
     }
-    public void onclick_btn_sound(){
-<<<<<<< HEAD
+        public void onclick_btn_sound(){
+            click_btn_sound = MediaPlayer.create(getActivity(),R.raw.fail);
+            click_btn_sound.start();
 
 
-    }
-    public void choisir_type(){
+        }
 
-=======
-        click_btn_sound = MediaPlayer.create(getActivity(),R.raw.fail);
-        click_btn_sound.start();
-
-    }
     public void choisir_type(){
         QuizType qt = new QuizType();
         qt.show(getFragmentManager(),"qt");
->>>>>>> origin/master
+
     }
     private void onclick_btn_technologie() {
 
@@ -143,8 +125,6 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
     }
 
 
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> origin/master
+
