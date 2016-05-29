@@ -1,13 +1,17 @@
 package tn.iit.quiz.quiz;
 
+import android.app.FragmentManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import tn.iit.quiz.quiz.fragment.MainFragment;
+import tn.iit.quiz.quiz.fragment.PlayFragment;
 
 public class MainActivity extends AppCompatActivity  {
     MediaPlayer backround_sound;
@@ -26,26 +30,18 @@ public class MainActivity extends AppCompatActivity  {
                     .add(R.id.fragment, new MainFragment())
                     .commit();
 
-
-
     }
-
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(tn.iit.quiz.quiz.R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == tn.iit.quiz.quiz.R.id.action_settings) {
-            return true;
+/*
+    public void onBackPressed()
+    {
+        if ( getFragmentManager().getBackStackEntryCount() > 0)
+        {
+            getFragmentManager().popBackStack();
+            return;
         }
-
-        return super.onOptionsItemSelected(item);
+        super.onBackPressed();
     }
+*/
+
 }
+

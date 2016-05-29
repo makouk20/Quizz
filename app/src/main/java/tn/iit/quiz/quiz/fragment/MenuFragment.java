@@ -29,7 +29,6 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(tn.iit.quiz.quiz.R.layout.fragment_menu, container, false);
 
-
         btn_random = (Button) myView.findViewById(R.id.btn_cat1);
         btn_random.setOnClickListener(this);
 
@@ -121,6 +120,5 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
         choisir_type();
         onclick_btn_sound();
     }
-
 
 }

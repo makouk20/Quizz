@@ -16,7 +16,6 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
     View myView;
 
 
-
     public PlayFragment() {
         super();
     }
@@ -69,7 +68,8 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
     private void onclick_btn_play() {
         this.getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment, new MenuFragment())
-                .commit();
+
+                .addToBackStack(null).commit();
 
 
     }
