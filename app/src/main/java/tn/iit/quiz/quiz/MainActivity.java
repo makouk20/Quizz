@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity  {
         getMenuInflater().inflate(tn.iit.quiz.quiz.R.menu.menu_main, menu);
         return true;
     }
-
+//az
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
