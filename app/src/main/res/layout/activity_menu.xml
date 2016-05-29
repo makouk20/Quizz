@@ -7,28 +7,10 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-
+    android:background="@drawable/back"
     tools:context="tn.iit.quiz.quiz.MenuActivity">
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text=""
-                android:id="@+id/textView2"
-                android:layout_gravity="center_horizontal" />
-
             <Button
                 android:id="@+id/btn_cat1"
-
                 android:text="@string/cat_1"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
@@ -39,19 +21,10 @@
                 android:shadowDx="-2"
                 android:shadowDy="2"
                 android:shadowRadius="4"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
+                android:alpha="0.8"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:alpha="0.8"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:id="@+id/textView"
-                android:layout_gravity="center_horizontal" />
+                android:layout_marginTop="15dp"/>
 
             <Button
                 android:id="@+id/btn_cat2"
@@ -65,20 +38,12 @@
                 android:shadowDx="-2"
                 android:shadowDy="2"
                 android:shadowRadius="4"
-                android:layout_below="@+id/btnFerme"
+                android:alpha="0.8"
+                android:layout_below="@id/btn_cat1"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:alpha="0.8"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text=""
-                android:id="@+id/textView3" />
-
+                android:layout_marginTop="15dp"
+               />
             <Button
                 android:id="@+id/btn_cat3"
                 android:text="@string/cat_3"
@@ -91,19 +56,11 @@
                 android:shadowDx="-2"
                 android:shadowDy="2"
                 android:shadowRadius="4"
-                android:layout_below="@+id/btnOiseaux"
-                android:layout_alignLeft="@+id/btnInsec"
-                android:layout_alignStart="@+id/btnInsec"
-                android:layout_alignRight="@+id/btnOiseaux"
-                android:layout_alignEnd="@+id/btnOiseaux"
-                android:alpha="0.8"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text=""
-                android:id="@+id/textView5" />
+                android:alpha="0.8"
+                android:layout_below="@id/btn_cat2"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="15dp"/>
 
             <Button
                 android:id="@+id/btn_cat4"
@@ -117,19 +74,11 @@
                 android:shadowDx="-2"
                 android:shadowDy="2"
                 android:shadowRadius="4"
-                android:layout_below="@+id/btnInsec"
+                android:alpha="0.8"
+                android:layout_below="@id/btn_cat3"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_alignRight="@+id/btnInsec"
-                android:layout_alignEnd="@+id/btnInsec"
-                android:alpha="0.8" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text=""
-                android:id="@+id/textView6" />
+                android:layout_marginTop="15dp"/>
 
             <Button
                 android:id="@+id/btn_cat5"
@@ -143,19 +92,11 @@
                 android:shadowDx="-2"
                 android:shadowDy="2"
                 android:shadowRadius="4"
-                android:layout_below="@+id/btnAniSau"
+                android:alpha="0.8"
+                android:layout_below="@id/btn_cat4"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:alpha="0.8"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text=""
-                android:id="@+id/textView7" />
+                android:layout_marginTop="15dp"/>
 
             <Button
                 android:id="@+id/btn_cat6"
@@ -169,11 +110,10 @@
                 android:shadowDx="-2"
                 android:shadowDy="2"
                 android:shadowRadius="4"
+                android:alpha="0.8"
                 android:layout_below="@+id/btn_cat5"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:alpha="0.8"/>
-        </LinearLayout>
-    </RelativeLayout>
+                android:layout_marginTop="15dp" />
+        </RelativeLayout>
+
