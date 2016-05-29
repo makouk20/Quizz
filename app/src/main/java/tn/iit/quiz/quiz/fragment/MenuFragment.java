@@ -1,6 +1,6 @@
 package tn.iit.quiz.quiz.fragment;
 
-
+import tn.iit.quiz.quiz.QuizType;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,8 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
-import tn.iit.quiz.quiz.QuizType;
 import tn.iit.quiz.quiz.R;
 
 public class MenuFragment extends Fragment implements View.OnClickListener {
@@ -22,7 +20,9 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
     private Button btn_science;
     private Button btn_technologie;
 
+
     MediaPlayer click_btn_sound;
+
     View myView;
     @Nullable
     @Override
@@ -81,14 +81,17 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
         }
 
     }
-    public void onclick_btn_sound(){
-        click_btn_sound = MediaPlayer.create(getActivity(),R.raw.fail);
-        click_btn_sound.start();
+        public void onclick_btn_sound(){
+            click_btn_sound = MediaPlayer.create(getActivity(),R.raw.fail);
+            click_btn_sound.start();
 
-    }
+
+        }
+
     public void choisir_type(){
         QuizType qt = new QuizType();
         qt.show(getFragmentManager(),"qt");
+
     }
     private void onclick_btn_technologie() {
 
@@ -121,4 +124,11 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
         onclick_btn_sound();
     }
 
+<<<<<<< HEAD
 }
+=======
+
+
+}
+
+>>>>>>> 73b52b7c16fe87b2566c01a92e72b1cc51e16b9c
