@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:id="@+id/btn_cat1"
+            android:text="@string/cat_1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textColor="@color/abc_primary_text_material_dark"
+            android:layout_margin="10dp"
+            android:background="#8d3a91cb"/>
+        <Button
+            android:id="@+id/btn_cat2"
+            android:text="@string/cat_2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textColor="@color/abc_primary_text_material_dark"
+            android:layout_margin="10dp"
+            android:background="#8d3a91cb"/>
+        <Button
+            android:id="@+id/btn_cat3"
+            android:text="@string/cat_3"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textColor="@color/abc_primary_text_material_dark"
+            android:layout_margin="10dp"
+            android:background="#8d3a91cb"/>
+        <Button
+            android:id="@+id/btn_cat4"
+            android:text="@string/cat_4"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textColor="@color/abc_primary_text_material_dark"
+            android:layout_margin="10dp"
+            android:background="#8d3a91cb"/>
+        <Button
+            android:id="@+id/btn_cat5"
+            android:text="@string/cat_5"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textColor="@color/abc_primary_text_material_dark"
+            android:layout_margin="10dp"
+            android:background="#8d3a91cb"/>
+        <Button
+            android:id="@+id/btn_cat6"
+            android:text="@string/cat_6"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textColor="@color/abc_primary_text_material_dark"
+            android:layout_margin="10dp"
+            android:background="#8d3a91cb"/>
+
+    </LinearLayout>
+</RelativeLayout>
