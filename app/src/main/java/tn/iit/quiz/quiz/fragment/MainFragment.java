@@ -48,17 +48,6 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             AccessToken accessToken = loginResult.getAccessToken();
             Profile profile = Profile.getCurrentProfile();
             displayWelcomeMessage(profile);
-
-
-
-
-            getFragmentManager().beginTransaction()
-                    .replace(R.id.fragment, new PlayFragment())
-                    .commit();
-
-
-
-
         }
 
         @Override
