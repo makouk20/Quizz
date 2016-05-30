@@ -124,11 +124,8 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
         onclick_btn_sound();
     }
 
-<<<<<<< HEAD
-}
-=======
-
 
 }
 
->>>>>>> 73b52b7c16fe87b2566c01a92e72b1cc51e16b9c
+
+
