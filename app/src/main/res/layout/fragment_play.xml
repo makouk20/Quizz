@@ -24,7 +24,7 @@
         android:shadowDy="2"
         android:shadowRadius="4"
         android:alpha="0.8"
-        android:background="@layout/button_play"
+        android:background="#f6f0ab4f"
         android:textStyle="bold|normal"
         android:layout_marginTop="66dp"
         android:layout_below="@+id/imageView"
