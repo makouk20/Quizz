@@ -121,6 +121,10 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     private void displayWelcomeMessage(Profile profile) {
         // StringBuffer stringBuffer = new StringBuffer();
         if (profile != null) {
+
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.fragment, new PlayFragment())
+                    .commit();
             //   mtextDetails.setText("Welcome " + profile.getName() );
         }
         //return stringBuffer.toString();
