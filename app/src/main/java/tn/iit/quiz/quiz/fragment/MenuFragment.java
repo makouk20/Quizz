@@ -127,6 +127,3 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
 }
 
 
-
-
-

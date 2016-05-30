@@ -122,10 +122,10 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         // StringBuffer stringBuffer = new StringBuffer();
         if (profile != null) {
 
+            //mtextDetails.setText("Welcome " + profile.getName() );
             getFragmentManager().beginTransaction()
                     .replace(R.id.fragment, new PlayFragment())
                     .commit();
-            //   mtextDetails.setText("Welcome " + profile.getName() );
         }
         //return stringBuffer.toString();
     }
