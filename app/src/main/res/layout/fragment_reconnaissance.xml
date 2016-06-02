@@ -11,7 +11,7 @@
         android:padding="3dp"
         android:scaleType="fitXY"
         />
-<<<<<<< HEAD
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,8 +39,7 @@
             android:gravity="right"
             android:id="@+id/timer"/>
     </RelativeLayout>
-=======
->>>>>>> db10ee37eaa7366702996b60d00a34b7c7ec4bcd
+
     <TextView android:text="Quel " android:id="@+id/question"
         android:background="@color/colorAccent"
         android:textColor="#000000"
