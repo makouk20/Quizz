@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
@@ -46,10 +47,34 @@ import tn.iit.quiz.quiz.R;
 public class ReconnaissanceFragment extends Fragment {
 
     public  ImageView imgView;
-    private TextView question;
+    private TextView question,t;
     private ListView lv;
     int pos;
     View v;
+    CountDownTimer timer =  new CountDownTimer(15000, 1000) {
+
+        public void onTick(long millisUntilFinished) {
+            t.setText("" + millisUntilFinished / 1000);
+        }
+
+        public void onFinish() {
+            index++;
+            if (index == reclist.size()) {
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment, new ReconnaissanceFragment())
+                        .addToBackStack(null).commit();
+            } else {
+                // Bitmap bMap = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Download/" + reclist.get(index).getImg());
+                //imgView.setImageBitmap(bMap);
+                Picasso.with(getActivity().getApplicationContext())
+                        .load(reclist.get(index).getImg())
+                        .into(imgView);
+                question.setText(reclist.get(index).getQuestion());
+                lv.setAdapter(new ArrayAdapter<String>(getActivity().getApplicationContext(), R.layout.tv, reclist.get(index).getList_proposition()));
+                timer.start();
+            }
+        }
+    };
     List<Reconnaissance> reclist=new ArrayList<Reconnaissance>();
     int index=0;
     int i=0;
@@ -73,6 +98,7 @@ public class ReconnaissanceFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_reconnaissance, container, false);
         question=(TextView)view.findViewById(R.id.question);
         imgView=(ImageView)view.findViewById(R.id.img);
+        t =(TextView) view.findViewById(R.id.timer);
         lv=(ListView)view.findViewById(R.id.listView1);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -193,6 +219,7 @@ public class ReconnaissanceFragment extends Fragment {
         MyAsyncTask asyncTask = new MyAsyncTask(this);
         this.asyncTaskWeakRef = new WeakReference<MyAsyncTask >(asyncTask );
         asyncTask.execute();
+        timer.start();
     }
     private boolean isAsyncTaskPendingOrRunning() {
         return this.asyncTaskWeakRef != null &&
