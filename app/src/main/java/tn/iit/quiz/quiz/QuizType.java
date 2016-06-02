@@ -9,6 +9,8 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.widget.Toast;
 
+import tn.iit.quiz.quiz.fragment.ReconnaissanceFragment;
+
 /**
  * Created by CTC on 01/05/2016.
  */
@@ -30,17 +32,17 @@ public class QuizType extends DialogFragment {
                     case 1:
                         selected = (String) items[which];
                         break;
-
                 }
             }
         }).setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getActivity(),"vous avez choisi le Quiz type : "+selected,Toast.LENGTH_SHORT).show();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment, new ReconnaissanceFragment())
+                        .addToBackStack(null).commit();
             }
         });
-
-
         return dialog.create();
     }
 }
