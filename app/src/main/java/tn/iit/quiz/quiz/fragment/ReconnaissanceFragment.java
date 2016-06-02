@@ -54,7 +54,10 @@ public class ReconnaissanceFragment extends Fragment {
     View v;
     List<Reconnaissance> reclist=new ArrayList<Reconnaissance>();
     int index=0;
+<<<<<<< HEAD
     int i=0;
+=======
+>>>>>>> db10ee37eaa7366702996b60d00a34b7c7ec4bcd
     private WeakReference<MyAsyncTask> asyncTaskWeakRef;
     public ReconnaissanceFragment() {
         // Required empty public constructor
@@ -79,8 +82,13 @@ public class ReconnaissanceFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.v("mmmm", reclist.get(index).getQuestion());
+<<<<<<< HEAD
                 pos = position;
                 v = view;
+=======
+                pos=position;
+                v=view;
+>>>>>>> db10ee37eaa7366702996b60d00a34b7c7ec4bcd
 
                 Animation anim = AnimationUtils.loadAnimation(
                         getActivity().getApplication(), android.R.anim.slide_out_right
@@ -90,6 +98,7 @@ public class ReconnaissanceFragment extends Fragment {
                 if (reclist.get(index).getReponse() == pos)
                     v.setBackgroundColor(Color.GREEN);
 
+<<<<<<< HEAD
                 else {
                     v.setBackgroundColor(Color.RED);
                     ImageView im1 = (ImageView) getActivity().findViewById(R.id.c3);
@@ -105,6 +114,11 @@ public class ReconnaissanceFragment extends Fragment {
                     i++;
                 }
                 Handler handler = new Handler();
+=======
+                else
+                    v.setBackgroundColor(Color.RED);
+                Handler handler =new Handler();
+>>>>>>> db10ee37eaa7366702996b60d00a34b7c7ec4bcd
                 new Handler().postDelayed(new Runnable() {
 
                     public void run() {
@@ -113,6 +127,7 @@ public class ReconnaissanceFragment extends Fragment {
                 }, anim.getDuration());
 
                 index++;
+<<<<<<< HEAD
                 if (index == reclist.size()) {
                     getActivity().getSupportFragmentManager().beginTransaction()
                             .replace(R.id.fragment, new ReconnaissanceFragment())
@@ -122,6 +137,20 @@ public class ReconnaissanceFragment extends Fragment {
                     //imgView.setImageBitmap(bMap);
                     Picasso.with(getActivity().getApplicationContext())
                             .load(reclist.get(index).getImg())
+=======
+                if(index==reclist.size())
+                {
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment, new ReconnaissanceFragment())
+                            .addToBackStack(null).commit();
+                }
+                else
+                {
+                   // Bitmap bMap = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Download/" + reclist.get(index).getImg());
+                    //imgView.setImageBitmap(bMap);
+                    Picasso.with(getActivity().getApplicationContext())
+                            .load( reclist.get(index).getImg())
+>>>>>>> db10ee37eaa7366702996b60d00a34b7c7ec4bcd
                             .into(imgView);
                     question.setText(reclist.get(index).getQuestion());
                     lv.setAdapter(new ArrayAdapter<String>(getActivity().getApplicationContext(), R.layout.tv, reclist.get(index).getList_proposition()));
