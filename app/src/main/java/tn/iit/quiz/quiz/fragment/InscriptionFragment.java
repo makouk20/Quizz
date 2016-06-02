@@ -62,8 +62,6 @@ public class InscriptionFragment extends Fragment implements View.OnClickListene
         }
 
     }
-
-
     public void onclickInscription() {
         if (!password.getText().toString().equals(cpassword.getText().toString())) {
             Toast.makeText(this.getActivity().getApplicationContext(), "The password confirmation is not identical", Toast.LENGTH_LONG).show();
@@ -77,12 +75,12 @@ public class InscriptionFragment extends Fragment implements View.OnClickListene
             Uri uri = this.getActivity().getContentResolver().insert(QuizContentProvider.UTILISATEUR_CONTENT_URI, contentValues);
             Toast.makeText(this.getActivity().getApplicationContext(), getString(R.string.registercompleted), Toast.LENGTH_LONG).show();
 
-/*
-            this.getActivity().getFragmentManager().beginTransaction()
+
+          /*  this.getActivity().getFragmentManager().beginTransaction()
                     .hide(this)
                     .show(new PlayFragment())
-                    .commit();
-*/
+                    .commit();*/
+
 
 
 

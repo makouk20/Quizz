@@ -1,0 +1,39 @@
+{
+	"reconnaissance": [{
+		"id": 1,
+		"id_categ": 1,
+		"question": "qu'elle est cet oiseau",
+		"img": "http://i.imgur.com/tNqd39x.png",
+		"list_proposition": [
+			"Gravelot à collier interrompu",
+			"Grand gravelot",
+			"Petit gravelot",
+			"Vanneau huppé"
+		],
+		"reponse": 1
+	}, {
+		"id": 3,
+		"id_categ": 1,
+		"question": "qu'elle est cet oiseau",
+		"img": "http://i.imgur.com/DgIoYyB.png",
+		"list_proposition": [
+			"Pipit farlouse",
+			"Troglodyte mignon",
+			"Grive draine",
+			"Alouette des champs"
+		],
+		"reponse": 2
+	}, {
+		"id": 2,
+		"id_categ": 1,
+		"question": "qu'elle est cet oiseau",
+		"img": "http://i.imgur.com/AVFZtyH.png",
+		"list_proposition": [
+			"Sarcelle d'hiver",
+			"Canard colvert",
+			"Nette rousse",
+			"Tadorne de Belon"
+		],
+		"reponse": 3
+	}]
+}
