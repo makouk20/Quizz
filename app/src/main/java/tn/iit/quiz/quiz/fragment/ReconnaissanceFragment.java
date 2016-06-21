@@ -1,5 +1,6 @@
 package tn.iit.quiz.quiz.fragment;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -32,6 +33,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 import tn.iit.quiz.quiz.R;
+import tn.iit.quiz.quiz.settings.Resultat;
 
 
 public class ReconnaissanceFragment extends Fragment {
@@ -50,9 +52,12 @@ public class ReconnaissanceFragment extends Fragment {
         public void onFinish() {
             index++;
             if (index == reclist.size()) {
-                getActivity().getFragmentManager().beginTransaction()
+              /*  getActivity().getFragmentManager().beginTransaction()
                         .replace(R.id.fragment, new ReconnaissanceFragment())
-                        .addToBackStack(null).commit();
+                        .addToBackStack(null).commit();*/
+                Intent intent = new Intent(getActivity().getApplication(), Resultat.class);
+                startActivity(intent);
+
             } else {
                 // Bitmap bMap = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Download/" + reclist.get(index).getImg());
                 //imgView.setImageBitmap(bMap);
@@ -134,9 +139,11 @@ public class ReconnaissanceFragment extends Fragment {
 
                 index++;
                 if (index == reclist.size()) {
-                    getActivity().getFragmentManager().beginTransaction()
+                  /*  getActivity().getFragmentManager().beginTransaction()
                             .replace(R.id.fragment, new ReconnaissanceFragment())
-                            .addToBackStack(null).commit();
+                            .addToBackStack(null).commit();*/
+                    Intent intent = new Intent(getActivity().getApplication(), Resultat.class);
+                    startActivity(intent);
                 } else {
                     // Bitmap bMap = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Download/" + reclist.get(index).getImg());
                     //imgView.setImageBitmap(bMap);

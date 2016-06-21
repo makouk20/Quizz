@@ -7,7 +7,6 @@ import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;

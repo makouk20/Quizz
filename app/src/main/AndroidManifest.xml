@@ -44,7 +44,8 @@
 
         <activity android:name=".settings.MainSetting" />
         <activity android:name=".settings.MainAbout" />
-        <activity android:name=".settings.MainRules"></activity>
+        <activity android:name=".settings.MainRules" />
+        <activity android:name=".settings.Resultat"></activity>
     </application>
 
 </manifest>
