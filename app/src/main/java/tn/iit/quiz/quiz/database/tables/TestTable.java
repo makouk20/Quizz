@@ -15,7 +15,7 @@ public class TestTable implements BaseColumns {
     public static final String DIFFICULTE = "difficulte";
     private static final String CREATE_TEST_TABLE = "CREATE TABLE "
             + TABLE_TEST + " (" + _ID
-            + " INTEGER PRIMARY KEY AUTOINCREMENT, " + TYPE
+            + " INTEGER PRIMARY KEY, " + TYPE
             + " TEXT NOT NULL, " + DESCRIPTION
             + " TEXT NOT NULL, " + DIFFICULTE
             + " TEXT NOT NULL );";
@@ -32,6 +32,11 @@ public class TestTable implements BaseColumns {
      */
     public static void onCreate(SQLiteDatabase database) {
         database.execSQL(CREATE_TEST_TABLE);
+        database.execSQL("insert into "+ TABLE_TEST+" ("+_ID+","+TYPE+","+DESCRIPTION+","+DIFFICULTE+") values (1,'History', 'h', '1');");
+        database.execSQL("insert into "+ TABLE_TEST+" ("+_ID+","+TYPE+","+DESCRIPTION+","+DIFFICULTE+") values (2,'Animaux', 'animaux Sauvage', '1');");
+        database.execSQL("insert into "+ TABLE_TEST+" ("+_ID+","+TYPE+","+DESCRIPTION+","+DIFFICULTE+") values (3,'Food', 'f', '1');");
+        database.execSQL("insert into "+ TABLE_TEST+" ("+_ID+","+TYPE+","+DESCRIPTION+","+DIFFICULTE+") values (4,'Science', 's', '1');");
+        database.execSQL("insert into "+ TABLE_TEST+" ("+_ID+","+TYPE+","+DESCRIPTION+","+DIFFICULTE+") values (5,'Technologie', 't', '1');");
     }
 
 

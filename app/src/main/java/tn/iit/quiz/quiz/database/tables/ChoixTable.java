@@ -32,7 +32,28 @@ public class ChoixTable implements BaseColumns {
      * @param database
      */
     public static void onCreate(SQLiteDatabase database) {
+
         database.execSQL(CREATE_CHOIX_TABLE);
+
+        database.execSQL("insert into "+ TABLE_CHOIX+" ("+IDQESTION+","+TEXTCHOIX+","+ REPONSE+") values (1, 'Gravelot à collier interrompu', '1');");
+        database.execSQL("insert into "+ TABLE_CHOIX+" ("+IDQESTION+","+TEXTCHOIX+","+ REPONSE+") values (1, 'Grand gravelot', '0');");
+        database.execSQL("insert into "+ TABLE_CHOIX+" ("+IDQESTION+","+TEXTCHOIX+","+ REPONSE+") values (1, 'Petit gravelot', '0');");
+        database.execSQL("insert into "+ TABLE_CHOIX+" ("+IDQESTION+","+TEXTCHOIX+","+ REPONSE+") values (1, 'Vanneau huppé', '0');");
+
+        database.execSQL("insert into "+ TABLE_CHOIX+" ("+IDQESTION+","+TEXTCHOIX+","+ REPONSE+") values (2, 'Pipit farlouse', '0');");
+        database.execSQL("insert into "+ TABLE_CHOIX+" ("+IDQESTION+","+TEXTCHOIX+","+ REPONSE+") values (2, 'Troglodyte mignon', '1');");
+        database.execSQL("insert into "+ TABLE_CHOIX+" ("+IDQESTION+","+TEXTCHOIX+","+ REPONSE+") values (2, 'Grive draine', '0');");
+        database.execSQL("insert into "+ TABLE_CHOIX+" ("+IDQESTION+","+TEXTCHOIX+","+ REPONSE+") values (2, 'Alouette des champs', '0');");
+
+        database.execSQL("insert into "+ TABLE_CHOIX+" ("+IDQESTION+","+TEXTCHOIX+","+ REPONSE+") values (3, 'Sarcelle d hiver', '0');");
+        database.execSQL("insert into "+ TABLE_CHOIX+" ("+IDQESTION+","+TEXTCHOIX+","+ REPONSE+") values (3, 'Canard colvert', '0');");
+        database.execSQL("insert into "+ TABLE_CHOIX+" ("+IDQESTION+","+TEXTCHOIX+","+ REPONSE+") values (3, 'Nette rousse', '1');");
+        database.execSQL("insert into "+ TABLE_CHOIX+" ("+IDQESTION+","+TEXTCHOIX+","+ REPONSE+") values (3, 'Tadorne de Belon', '0');");
+
+            
+            
+            
+       
     }
 
 

@@ -75,12 +75,9 @@ public class InscriptionFragment extends Fragment implements View.OnClickListene
             Uri uri = this.getActivity().getContentResolver().insert(QuizContentProvider.UTILISATEUR_CONTENT_URI, contentValues);
             Toast.makeText(this.getActivity().getApplicationContext(), getString(R.string.registercompleted), Toast.LENGTH_LONG).show();
 
-
-          /*  this.getActivity().getFragmentManager().beginTransaction()
-                    .hide(this)
-                    .show(new PlayFragment())
-                    .commit();*/
-
+            this.getActivity().getFragmentManager().beginTransaction()
+                    .replace(R.id.fragment, new PlayFragment())
+                    .commit();
 
 
 

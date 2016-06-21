@@ -4,12 +4,12 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.preference.DialogPreference;
 import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
 import android.widget.Toast;
+import android.app.DialogFragment;
 
 import tn.iit.quiz.quiz.fragment.ReconnaissanceFragment;
+import tn.iit.quiz.quiz.fragment.ReconnaissanceSqliteFragment;
 
 /**
  * Created by CTC on 01/05/2016.
@@ -38,8 +38,9 @@ public class QuizType extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getActivity(),"vous avez choisi le Quiz type : "+selected,Toast.LENGTH_SHORT).show();
-                getActivity().getSupportFragmentManager().beginTransaction()
+                 getActivity().getFragmentManager().beginTransaction()
                         .replace(R.id.fragment, new ReconnaissanceFragment())
+                       // .replace(R.id.fragment, new ReconnaissanceSqliteFragment())
                         .addToBackStack(null).commit();
             }
         });

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="open">Quiz è un programma open source gratuito per tutti</string>
+    <string name="History">Storia</string>
+    <string name="Random">Casuale</string>
+    <string name="Animal">Animali</string>
+    <string name="food">Cibo</string>
+    <string name="science">Scienza</string>
+    <string name="techno">Tecnologia</string>
+    <string name="btn_Play">giocare</string>
+    <string name="reg">Le regole del nostro gioco :</string>
+    <string name="regscore">Come viene calcolato il tuo punteggio?</string>
+    <string name="reg1">In primo luogo è necessario scegliere un quiz a tema che contiene una serie di questions.Vous hanno 3 vite quindi il diritto di tre possibilità di completare il nostro quiz.</string>
+    <string name="scr">    In primo luogo, si gioca per la definizione di una serie di punti da effettuare nei primi mesi del caso partie.Par la prima domanda ha risposto correttamente si ottiene un punteggio di 50 punti
+
+    </string>
+<string name="devby">Questo gioco è stato sviluppato dagli studenti del IIT</string>
+</resources>

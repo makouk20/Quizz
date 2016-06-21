@@ -16,7 +16,7 @@ public class QestionTable implements BaseColumns {
 
     private static final String CREATE_QESTION_TABLE = "CREATE TABLE "
             + TABLE_QESTION + " (" + _ID
-            + " INTEGER PRIMARY KEY AUTOINCREMENT, " + IDTEST
+            + " INTEGER PRIMARY KEY , " + IDTEST
             + " INTEGER NOT NULL, " + QESTION
             + " TEXT NOT NULL, " + URLIMAGE
             + " TEXT NOT NULL, "
@@ -34,7 +34,11 @@ public class QestionTable implements BaseColumns {
      * @param database
      */
     public static void onCreate(SQLiteDatabase database) {
+
         database.execSQL(CREATE_QESTION_TABLE);
+        database.execSQL("insert into "+ TABLE_QESTION+" ("+_ID+","+IDTEST+","+QESTION+","+ URLIMAGE +") values (1,2, 'qu elle est cet oiseau', 'http://i.imgur.com/tNqd39x.png');");
+        database.execSQL("insert into "+ TABLE_QESTION+" ("+_ID+","+IDTEST+","+QESTION+","+ URLIMAGE +") values (2,2, 'qu elle est cet oiseau', 'http://i.imgur.com/DgIoYyB.png');");
+        database.execSQL("insert into "+ TABLE_QESTION+" ("+_ID+","+IDTEST+","+QESTION+","+ URLIMAGE +") values (3,2, 'qu elle est cet oiseau', 'http://i.imgur.com/AVFZtyH.png');");
     }
 
 

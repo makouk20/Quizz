@@ -6,10 +6,10 @@ import android.annotation.TargetApi;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +23,8 @@ import android.widget.Toast;
 import tn.iit.quiz.quiz.R;
 import tn.iit.quiz.quiz.database.ConvertisseurBDD;
 import tn.iit.quiz.quiz.database.QuizContentProvider;
+import tn.iit.quiz.quiz.database.tables.ChoixTable;
+import tn.iit.quiz.quiz.database.tables.QestionTable;
 import tn.iit.quiz.quiz.database.tables.UtilisateurTable;
 import tn.iit.quiz.quiz.entities.Utilisateur;
 
@@ -39,12 +41,24 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     private View mProgressView;
     private View mLoginFormView;
 
-    @Nullable
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(tn.iit.quiz.quiz.R.layout.fragment_login, container, false);
 
 
+
+        Cursor cursorQestion = getActivity().getContentResolver().query(QuizContentProvider.QESTION_CONTENT_URI, QestionTable.PROJECTION_ALL, null, null, null);
+        String ss="";
+        int countch=cursorQestion.getCount();
+        cursorQestion.moveToFirst();
+        for (int j=0;i<countch;i++) {
+            ss+="  "+ cursorQestion.getString(cursorQestion.getColumnIndex(QestionTable.QESTION));
+            cursorQestion.moveToNext();
+        }
+        cursorQestion.close();
+        Toast.makeText(this.getActivity().getApplicationContext(), ss, Toast.LENGTH_LONG).show();
+        Log.v("drisslogin",ss);
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) myView.findViewById(R.id.email);
 
@@ -74,12 +88,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
 
     public void mInscription() {
-      FragmentTransaction ft = this.getActivity().getSupportFragmentManager().beginTransaction();
-        ft.hide(this);
-        ft.commit();
+
         this.getActivity().getFragmentManager().beginTransaction()
-                .replace(R.id.fragment
-                        ,new InscriptionFragment())
+                .replace(R.id.fragment,new InscriptionFragment())
                 .commit();
 
 
@@ -159,8 +170,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
             if (user != null) {
 
-                Toast.makeText(this.getActivity().getApplicationContext(), user.toString(), Toast.LENGTH_LONG).show();
-                this.getActivity().getSupportFragmentManager().beginTransaction()
+
+               Toast.makeText(this.getActivity().getApplicationContext(), user.toString(), Toast.LENGTH_LONG).show();
+                this.getActivity().getFragmentManager().beginTransaction()
                         .replace(R.id.fragment, new PlayFragment())
                         .commit();
             } else {

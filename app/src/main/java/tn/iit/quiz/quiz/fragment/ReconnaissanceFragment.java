@@ -19,28 +19,18 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.support.v4.app.Fragment;
-
+import android.app.Fragment;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.google.gson.stream.JsonReader;
 import com.squareup.picasso.Picasso;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tn.iit.quiz.quiz.entities.Reconnaissance;
 import java.io.IOException;
 import java.io.InputStream;
-
 import java.lang.ref.WeakReference;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import tn.iit.quiz.quiz.R;
 
 
@@ -60,7 +50,7 @@ public class ReconnaissanceFragment extends Fragment {
         public void onFinish() {
             index++;
             if (index == reclist.size()) {
-                getActivity().getSupportFragmentManager().beginTransaction()
+                getActivity().getFragmentManager().beginTransaction()
                         .replace(R.id.fragment, new ReconnaissanceFragment())
                         .addToBackStack(null).commit();
             } else {
@@ -144,7 +134,7 @@ public class ReconnaissanceFragment extends Fragment {
 
                 index++;
                 if (index == reclist.size()) {
-                    getActivity().getSupportFragmentManager().beginTransaction()
+                    getActivity().getFragmentManager().beginTransaction()
                             .replace(R.id.fragment, new ReconnaissanceFragment())
                             .addToBackStack(null).commit();
                 } else {

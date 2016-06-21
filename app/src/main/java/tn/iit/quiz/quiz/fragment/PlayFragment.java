@@ -1,15 +1,18 @@
 package tn.iit.quiz.quiz.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
 import tn.iit.quiz.quiz.R;
+import tn.iit.quiz.quiz.settings.MainAbout;
+import tn.iit.quiz.quiz.settings.MainRules;
+import tn.iit.quiz.quiz.settings.MainSetting;
 
 public class PlayFragment extends Fragment implements View.OnClickListener {
     Button btn_play, btn_apropos,btn_info,btn_setting;
@@ -66,7 +69,7 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
 
 
     private void onclick_btn_play() {
-        this.getActivity().getSupportFragmentManager().beginTransaction()
+        this.getActivity().getFragmentManager().beginTransaction()
                 .replace(R.id.fragment, new MenuFragment())
 
                 .addToBackStack(null).commit();
@@ -75,12 +78,18 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
     }
 
     private void onclick_btn_apropos() {
+        Intent intent = new Intent(getActivity().getApplication(),MainRules.class);
+        startActivity(intent);
     }
 
     private void onclick_btn_info() {
+        Intent intent = new Intent(getActivity().getApplication(),MainAbout.class);
+        startActivity(intent);
     }
 
     private void onclick_btn_setting() {
+        Intent intent = new Intent(getActivity().getApplication(),MainSetting.class);
+        startActivity(intent);
     }
 
 

@@ -18,11 +18,10 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getResources().getString(R.string.app_name));
-        //  toolbar.setSubtitle("mohammed ali driss");
         toolbar.setLogo(R.mipmap.ic_logo_quiz);
         setSupportActionBar(toolbar);
 
-        getSupportFragmentManager().beginTransaction()
+         getFragmentManager().beginTransaction()
                 .add(R.id.fragment, new MainFragment())
                 .commit();
 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reg">Les régles de notre jeu :</string>
+    <string name="reg1">  En premier lieu vous devez choisir un théme de quizz dont il contient une série de questions.Vous avez 3 vies donc le droit de 3 chances pour terminer notre quizz.</string>
+    <string name="regscore">Comment est calculé votre score ?</string>
+    <string name="scr">Tout dabord,vous jouez des parties en définissant un nombre de point à réaliser en début de la partie.Par exemple la premiére question répondu correctement vous obtenez un score de 50 points</string>
+    <string name="open">Quizz est une application open source gratuit pour tout le monde</string>
+    <string name="devby">Ce jeux a été développé  par les étudiants de IIT</string>
+    <string name="History">Histoire</string>
+    <string name="Random">Aléatoire</string>
+    <string name="Animal">Animals</string>
+    <string name="food">Aliments</string>
+    <string name="science">Science</string>
+    <string name="techno">Technologie</string>
+    <string name="btn_Play">Jouer</string>
+ 
+</resources>

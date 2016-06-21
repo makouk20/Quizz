@@ -3,8 +3,7 @@ package tn.iit.quiz.quiz.fragment;
 import tn.iit.quiz.quiz.QuizType;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +22,7 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
     MediaPlayer click_btn_sound;
 
     View myView;
-    @Nullable
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(tn.iit.quiz.quiz.R.layout.fragment_menu, container, false);

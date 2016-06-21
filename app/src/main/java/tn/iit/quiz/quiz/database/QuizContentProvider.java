@@ -175,19 +175,19 @@ public class QuizContentProvider extends ContentProvider {
                 queryBuilder.setTables(UtilisateurTable.TABLE_UTILISATEUR);
                 break;
             case TEST_ALL:
-                checkUtilisateurTableColumns(projection);
+                checkTestTableColumns(projection);
                 queryBuilder.setTables(TestTable.TABLE_TEST);
                 break;
             case QESTION_ALL:
-                checkUtilisateurTableColumns(projection);
+                checkQestionTableColumns(projection);
                 queryBuilder.setTables(QestionTable.TABLE_QESTION);
                 break;
             case CHOIX_ALL:
-                checkUtilisateurTableColumns(projection);
+                checkChoixTableColumns(projection);
                 queryBuilder.setTables(ChoixTable.TABLE_CHOIX);
                 break;
             case UTILISATEUR_TEST_ALL:
-                checkUtilisateurTableColumns(projection);
+                checkUtilisateurTestTableColumns(projection);
                 queryBuilder.setTables(UtilisateurTestTable.TABLE_UTILISATEUR_TEST);
                 break;
             case UTILISATEUR_ID:
@@ -212,6 +212,9 @@ public class QuizContentProvider extends ContentProvider {
 
         return cursor;
     }
+
+
+
 
     @Override
     public int update(Uri uri, ContentValues values, String selection,
@@ -268,4 +271,57 @@ public class QuizContentProvider extends ContentProvider {
             }
         }
     }
+    private void checkTestTableColumns(String[] projection) {
+        if (projection != null) {
+            HashSet<String> requestedColumns = new HashSet<String>(
+                    Arrays.asList(projection));
+            HashSet<String> availableColumns = new HashSet<String>(
+                    Arrays.asList(TestTable.PROJECTION_ALL));
+            // Check if all columns which are requested are available
+            if (!availableColumns.containsAll(requestedColumns)) {
+                throw new IllegalArgumentException(
+                        "Unknown columns in projection");
+            }
+        }
+    }
+    private void checkQestionTableColumns(String[] projection) {
+        if (projection != null) {
+            HashSet<String> requestedColumns = new HashSet<String>(
+                    Arrays.asList(projection));
+            HashSet<String> availableColumns = new HashSet<String>(
+                    Arrays.asList(QestionTable.PROJECTION_ALL));
+            // Check if all columns which are requested are available
+            if (!availableColumns.containsAll(requestedColumns)) {
+                throw new IllegalArgumentException(
+                        "Unknown columns in projection");
+            }
+        }
+    }
+    private void checkChoixTableColumns(String[] projection) {
+        if (projection != null) {
+            HashSet<String> requestedColumns = new HashSet<String>(
+                    Arrays.asList(projection));
+            HashSet<String> availableColumns = new HashSet<String>(
+                    Arrays.asList(ChoixTable.PROJECTION_ALL));
+            // Check if all columns which are requested are available
+            if (!availableColumns.containsAll(requestedColumns)) {
+                throw new IllegalArgumentException(
+                        "Unknown columns in projection");
+            }
+        }
+    }
+    private void checkUtilisateurTestTableColumns(String[] projection) {
+        if (projection != null) {
+            HashSet<String> requestedColumns = new HashSet<String>(
+                    Arrays.asList(projection));
+            HashSet<String> availableColumns = new HashSet<String>(
+                    Arrays.asList(UtilisateurTestTable.PROJECTION_ALL));
+            // Check if all columns which are requested are available
+            if (!availableColumns.containsAll(requestedColumns)) {
+                throw new IllegalArgumentException(
+                        "Unknown columns in projection");
+            }
+        }
+    }
+
 }

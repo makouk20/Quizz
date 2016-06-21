@@ -14,7 +14,7 @@ import tn.iit.quiz.quiz.database.tables.UtilisateurTestTable;
 public class QuizDatabaseHelper extends SQLiteOpenHelper {
 
     // database name
-    private static final String DATABASE_NAME = "quizy.db";
+    private static final String DATABASE_NAME = "quizSqlit5.db";
     // data base version
     private static final int DATABASE_VERSION = 1;
 
@@ -47,6 +47,9 @@ public class QuizDatabaseHelper extends SQLiteOpenHelper {
         QestionTable.onCreate(db);
         ChoixTable.onCreate(db);
         UtilisateurTestTable.onCreate(db);
+
+
+
 
     }
 

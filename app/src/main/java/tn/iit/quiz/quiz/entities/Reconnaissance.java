@@ -23,6 +23,8 @@ public class Reconnaissance {
         this.reponse=reponse;
     }
 
+
+
     public Reconnaissance(int id) {
         this.id = id;
     }
@@ -57,8 +59,8 @@ public class Reconnaissance {
     public String getImg() {
         return img;
     }
-    public void seImg(String list_img) {
-        this.img = list_img;
+    public void setImg(String img) {
+        this.img = img;
     }
     public List<String> getList_proposition() {
         return list_proposition;

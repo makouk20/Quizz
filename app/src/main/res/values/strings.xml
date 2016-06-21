@@ -2,14 +2,18 @@
     <string name="app_name">Quiz</string>
     <string name="action_settings">Settings</string>
     <string name="app_id">1400319156936306</string>
-
-
-    <string name="cat_1">Random</string>
-    <string name="cat_2">History</string>
-    <string name="cat_3">Animals</string>
-    <string name="cat_4">Food</string>
-    <string name="cat_5">Science</string>
-    <string name="cat_6">Technologie</string>
+    <string name="devby"> This game was developed by students of IIT</string>
+    <string name="open">Quiz is a free open source application for everyone</string>
+    <string name="scr"> First, you play games by defining a number of points to be made in early partie.Par instance the first question answered correctly you get a score of 50 points</string>
+    <string name="regscore">How is your score calculated?</string>
+    <string name="reg">The rules of our game:</string>
+    <string name="reg1"> First you must choose a theme quiz which contains a series of questions.Vous have 3 lives therefore entitled to three chances to complete our quiz.</string>
+    <string name="Random">Random</string>
+    <string name="History">History</string>
+    <string name="Animal">Animals</string>
+    <string name="food">Food</string>
+    <string name="science">Science</string>
+    <string name="techno">Technology</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password </string>
     <string name="action_sign_in">Sign in</string>
